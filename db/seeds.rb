@@ -28,8 +28,8 @@ class Seed
 
     20.times do |i|
       user = User.create!(
-            first_name: Faker::Zelda.character,
-            last_name: Faker::Zelda.character,
+            first_name: Faker::Games::Zelda.character,
+            last_name: Faker::Games::Zelda.character,
             email: Faker::Internet.email,
             phone: ENV['phone'],
             password: "password",
@@ -39,9 +39,9 @@ class Seed
       puts "Vendor #{i}: #{user.first_name} created!"
       6.times do |i|
         tour = Tour.create!(
-          name: "#{rand(2..14)} Days in #{Faker::StarTrek.location}",
-          description: Faker::TwinPeaks.quote,
-          price: "$#{Faker::Number.decimal(2)}",
+          name: "#{rand(2..14)} Days in #{Faker::TvShows::StarTrek.location}",
+          description: Faker::TvShows::TwinPeaks.quote,
+          price: "$#{Faker::Number.decimal(r_digits: 2)}",
           average_rating: rand(1..5).to_f,
           user_id: user.id
         )
@@ -54,8 +54,8 @@ class Seed
 
     1000.times do |i|
       user = User.create!(
-            first_name: Faker::Zelda.character,
-            last_name: Faker::Zelda.character,
+            first_name: Faker::Games::Zelda.character,
+            last_name: Faker::Games::Zelda.character,
             email: Faker::Internet.email,
             phone: ENV['phone'],
             password: "password",
